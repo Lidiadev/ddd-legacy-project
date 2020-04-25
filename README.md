@@ -9,3 +9,5 @@ The sample project is a Package Delivery System which keeps track of packages fo
 - create delivery: select customer and address
 - edit package: select products
 - send package to customer.
+
+The Package Delivery System is a desktop application written in WPF. It uses Dapper to execute SQL queries.
