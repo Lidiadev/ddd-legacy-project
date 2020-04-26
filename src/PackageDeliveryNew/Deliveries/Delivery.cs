@@ -15,16 +15,16 @@ namespace PackageDeliveryNew.Deliveries
         public Delivery(int id, Address address)
             : base(id)
         {
+            Contracts.Require(id >= 0);
+            Contracts.Require(address != null);
+
             Address = address;
         }
 
         public decimal GetEstimate(double distanceInMiles, List<ProductLine> productLines)
         {
-            if (distanceInMiles < 0)
-                throw new Exception("Invalid distance.");
-
-            if (productLines.Count == 0 || productLines.Count > 4)
-                throw new Exception("Invalid product line count.");
+            Contracts.Require(distanceInMiles >= 0, "Invalid distance.");
+            Contracts.Require(productLines.Count > 0 && productLines.Count <= 4, "Invalid product line count.");
 
             double totalWeightInPounds = productLines.Sum(x => x.Amount * x.Product.WeightInPounds);
 

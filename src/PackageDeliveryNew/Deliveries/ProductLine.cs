@@ -11,6 +11,9 @@ namespace PackageDeliveryNew.Deliveries
 
         public ProductLine(Product product, int amount)
         {
+            Contracts.Require(product != null);
+            Contracts.Require(amount >= 0);
+
             Product = product;
             Amount = amount;
         }

@@ -1,4 +1,5 @@
-﻿using PackageDelivery.Common;
+﻿using CSharpFunctionalExtensions;
+using PackageDelivery.Common;
 using PackageDeliveryNew.Deliveries;
 
 namespace PackageDelivery.Delivery
@@ -65,12 +66,20 @@ namespace PackageDelivery.Delivery
 
         private void RecalculateCost()
         {
-            CostEstimate = (double)_estimateCalculator.Calculate(
+            Result<decimal> estimateOrError = _estimateCalculator.Calculate(
                 _delivery.NMB_CLM,
                 _product1?.NMB_CM, Amount1,
                 _product2?.NMB_CM, Amount2,
                 _product3?.NMB_CM, Amount3,
                 _product4?.NMB_CM, Amount4);
+
+            if(estimateOrError.IsFailure)
+            {
+                CustomMessageBox.ShowError(estimateOrError.Error);
+                return;
+            }
+
+            CostEstimate = (double)estimateOrError.Value;
 
             Notify(nameof(CostEstimate));
         }

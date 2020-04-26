@@ -1,4 +1,5 @@
-﻿using PackageDeliveryNew.Acl;
+﻿using CSharpFunctionalExtensions;
+using PackageDeliveryNew.Acl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,14 @@ namespace PackageDeliveryNew.Deliveries
             _addressResolver = new AddressResolver();
         }
 
-        public decimal Calculate(int deliveryId,
+        public Result<decimal> Calculate(int deliveryId,
             int? productId1, int amount1,
             int? productId2, int amount2,
             int? productId3, int amount3,
             int? productId4, int amount4)
         {
             if (productId1 == null && productId2 == null && productId3 == null && productId4 == null)
-                throw new Exception("Must provide at least one product.");
+                return Result.Failure<decimal>("Must provide at least one product.");
 
             Delivery delivery = _deliveryRepository.GetById(deliveryId);
             if (delivery == null)
@@ -33,7 +34,7 @@ namespace PackageDeliveryNew.Deliveries
 
             double? distance = _addressResolver.GetDistance(delivery.Address);
             if (distance == null)
-                throw new Exception($"Address is not found for delivery {deliveryId}.");
+                return Result.Failure<decimal>($"Address is not found for delivery {deliveryId}.");
 
             List<ProductLine> productLines = new List<(int? productId, int amount)>
                 {
@@ -49,7 +50,7 @@ namespace PackageDeliveryNew.Deliveries
             if (productLines.Any(x => x.Product == null))
                 throw new Exception($"One of the products is not found for delivery {deliveryId}.");
 
-            return delivery.GetEstimate(distance.Value, productLines);
+            return Result.Ok(delivery.GetEstimate(distance.Value, productLines));
         }
     }
 

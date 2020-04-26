@@ -9,6 +9,9 @@ namespace PackageDeliveryNew.Deliveries
         public Product(int id, double weightInPounds) 
             : base(id)
         {
+            Contracts.Require(id >= 0);
+            Contracts.Require(weightInPounds > 0, "Weight must be greater than 0.");
+
             WeightInPounds = weightInPounds;
         }
     }

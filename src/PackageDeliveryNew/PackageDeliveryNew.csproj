@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSharpFunctionalExtensions, Version=2.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CSharpFunctionalExtensions.2.7.1\lib\net461\CSharpFunctionalExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -47,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Acl\DeliveryRepository.cs" />
     <Compile Include="Acl\ProductRepository.cs" />
+    <Compile Include="Common\Contracts.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\ValueObject.cs" />
     <Compile Include="Deliveries\Address.cs" />

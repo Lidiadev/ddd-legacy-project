@@ -15,6 +15,11 @@ namespace PackageDeliveryNew.Deliveries
 
         public Address(string street, string city, string state, string zipCode)
         {
+            Contracts.Require(!string.IsNullOrEmpty(street));
+            Contracts.Require(!string.IsNullOrEmpty(city));
+            Contracts.Require(!string.IsNullOrEmpty(state));
+            Contracts.Require(!string.IsNullOrEmpty(zipCode));
+
             Street = street;
             City = city;
             State = state;
