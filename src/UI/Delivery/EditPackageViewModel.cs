@@ -1,4 +1,5 @@
 ﻿using PackageDelivery.Common;
+using PackageDeliveryNew.Deliveries;
 
 namespace PackageDelivery.Delivery
 {
@@ -36,6 +37,8 @@ namespace PackageDelivery.Delivery
         public override string Caption => "Edit Package";
         public override double Height => 410;
 
+        private readonly EstimateCalculator _estimateCalculator;
+
         public EditPackageViewModel(Dlvr delivery)
         {
             _delivery = delivery;
@@ -56,11 +59,19 @@ namespace PackageDelivery.Delivery
             ChangeProduct3Command = new Command(() => ChangeProduct(ref _product3, nameof(Product3Name)));
             ChangeProduct4Command = new Command(() => ChangeProduct(ref _product4, nameof(Product4Name)));
             RecalculateCostCommand = new Command(RecalculateCost);
+
+            _estimateCalculator = new EstimateCalculator();
         }
 
         private void RecalculateCost()
         {
-            CostEstimate = (Amount1 + Amount2 + Amount3 + Amount4) * 40;
+            CostEstimate = (double)_estimateCalculator.Calculate(
+                _delivery.NMB_CLM,
+                _product1?.NMB_CM, Amount1,
+                _product2?.NMB_CM, Amount2,
+                _product3?.NMB_CM, Amount3,
+                _product4?.NMB_CM, Amount4);
+
             Notify(nameof(CostEstimate));
         }
 

@@ -12,7 +12,7 @@ _ReSharper*
 *.cache
 *.ncrunchsolution
 *.ncrunchproject
-*/packages/*/*
+packages/*/*
 /Tools/*/*
 project.lock.json
 project.fragment.lock.json
