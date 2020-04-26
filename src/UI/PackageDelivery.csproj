@@ -80,6 +80,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\CustomMessageBox.cs" />
+    <Compile Include="DeliveryNew\AddProductLineViewModel.cs" />
+    <Compile Include="DeliveryNew\ChangePackageViewModel.cs" />
+    <Compile Include="DeliveryNew\ChangeProductViewModel.cs" />
     <Compile Include="Delivery\ChangeCustomerViewModel.cs" />
     <Compile Include="Delivery\ChangeProductViewModel.cs" />
     <Compile Include="Delivery\Cstm.cs" />
@@ -97,6 +100,18 @@
     <Page Include="Common\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DeliveryNew\AddProductLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeliveryNew\ChangePackageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeliveryNew\ChangeProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Delivery\ChangeProductView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -176,5 +191,6 @@
       <Name>PackageDeliveryNew</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,27 +10,51 @@ namespace PackageDeliveryNew.Deliveries
         private const double PricePerMilePerPound = 0.04;
         private const double NonConditionalCharge = 0.04;
 
-        public Address Address { get; }
+        public Address Destination { get; }
 
-        public Delivery(int id, Address address)
+        public decimal? CostEstimate { get; private set; }
+
+        private IList<ProductLine> _lines;
+        public IReadOnlyList<ProductLine> Lines => _lines.ToList();
+
+        public Delivery(int id, Address destination, decimal? costEstimate, IReadOnlyList<ProductLine> lines)
             : base(id)
         {
             Contracts.Require(id >= 0);
-            Contracts.Require(address != null);
+            Contracts.Require(destination != null);
+            Contracts.Require(costEstimate >= 0);
+            Contracts.Require(lines != null);
 
-            Address = address;
+            Destination = destination;
+            CostEstimate = costEstimate;
+            _lines = lines.ToList();
         }
 
-        public decimal GetEstimate(double distanceInMiles, List<ProductLine> productLines)
+        public void RecalculateCostEstimate(double distanceInMiles)
         {
             Contracts.Require(distanceInMiles >= 0, "Invalid distance.");
-            Contracts.Require(productLines.Count > 0 && productLines.Count <= 4, "Invalid product line count.");
+            Contracts.Require(Lines.Count > 0, "Need at least one product line.");
 
-            double totalWeightInPounds = productLines.Sum(x => x.Amount * x.Product.WeightInPounds);
+            double totalWeightInPounds = Lines.Sum(x => x.Amount * x.Product.WeightInPounds);
 
             double estimate = totalWeightInPounds * distanceInMiles * PricePerMilePerPound * NonConditionalCharge;
 
-            return decimal.Round((decimal)estimate, 2);
+            CostEstimate = decimal.Round((decimal)estimate, 2);
+        }
+
+        public void DeleteLine(ProductLine productLine)
+        {
+            Contracts.Require(productLine != null);
+
+            _lines.Remove(productLine);
+        }
+
+        public void AddProduct(Product product, int amount)
+        {
+            Contracts.Require(product != null);
+            Contracts.Require(amount >=0, "Amount must be greater than 0.");
+
+            _lines.Add(new ProductLine(product, amount));
         }
     }
 }

@@ -68,7 +68,7 @@ namespace PackageDelivery.Delivery
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"SELECT * FROM [dbo].[PRD_TBL] WHERE NMB_CM = @ID";
-                return connection.Query<Prdct>(query, new { ID = productId }).SingleOrDefault();
+                return connection.Query<Prdct>(query, new { ID = productId }).FirstOrDefault();
             }
         }
 

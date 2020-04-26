@@ -24,7 +24,7 @@ namespace PackageDeliveryNew.Acl
 
             double wightInPounds = productLegacy.WT ?? productLegacy.WT_KG.Value * PoundsInKilogram;
 
-            return new Product(productLegacy.NMB_CM, wightInPounds);
+            return null; // new Product(productLegacy.NMB_CM, wightInPounds);
         }
 
         public ProductLegacy GetLegacyProduct(int id)

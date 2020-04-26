@@ -7,10 +7,11 @@ namespace PackageDelivery
     {
         public App()
         {
-            string connectionString = @"Server=L110042\SQLEXPRESS;Database=PackageDelivery;Trusted_Connection=true;";
+            string legacyDatabaseDonnectionString = @"Server=L110042\SQLEXPRESS;Database=PackageDelivery;Trusted_Connection=true;";
+            string bubbleDatabaseDonnectionString = @"Server=L110042\SQLEXPRESS;Database=PackageDeliveryNew;Trusted_Connection=true;";
 
-            DBHelper.Init(connectionString);
-            Settings.Init(connectionString);
+            DBHelper.Init(legacyDatabaseDonnectionString);
+            Settings.Init(bubbleDatabaseDonnectionString);
         }
     }
 }

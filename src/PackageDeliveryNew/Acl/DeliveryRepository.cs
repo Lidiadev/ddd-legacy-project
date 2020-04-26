@@ -29,7 +29,7 @@ namespace PackageDeliveryNew.Acl
                 cityAndState[1].Trim(),
                 (deliveryLegacy.ZP ?? string.Empty).Trim());
 
-            return new Delivery(deliveryLegacy.NMB_CLM, address);
+            return null; // new Delivery(deliveryLegacy.NMB_CLM, address);
         }
 
         private DeliveryLegacy GetLegacyDelivery(int id)
