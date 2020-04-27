@@ -1,4 +1,4 @@
-Domain-Driven Design - working with legacy projects (Work in progress)
+Domain-Driven Design - working with legacy projects
 
 ### Branches
 
