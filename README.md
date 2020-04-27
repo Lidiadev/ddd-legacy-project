@@ -17,6 +17,8 @@ The Package Delivery System is a desktop application written in WPF. It uses Dap
 ![anticorruption layer](https://github.com/Lidiadev/ddd-legacy-project/blob/master/images/anticorruption_layer.PNG)
 - promote the anticorruption layer to the synchronizing anticorruption layer which resides in its own bounded context
 
+![sync layer](https://github.com/Lidiadev/ddd-legacy-project/blob/master/images/sync_layer.PNG)
+
 ### Branches
 
 - [Initial](https://github.com/Lidiadev/ddd-legacy-project/tree/intial) - the `initial` branch contains the legacy project.
