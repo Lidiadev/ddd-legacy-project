@@ -48,15 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acl\DeliveryRepository.cs" />
-    <Compile Include="Acl\ProductRepository.cs" />
     <Compile Include="Common\Contracts.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\ValueObject.cs" />
     <Compile Include="Deliveries\Address.cs" />
+    <Compile Include="Deliveries\AddressResolver.cs" />
     <Compile Include="Deliveries\Delivery.cs" />
     <Compile Include="Deliveries\DeliveryRepository.cs" />
-    <Compile Include="Deliveries\EstimateCalculator.cs" />
     <Compile Include="Deliveries\Product.cs" />
     <Compile Include="Deliveries\ProductLine.cs" />
     <Compile Include="Deliveries\ProductRepository.cs" />
