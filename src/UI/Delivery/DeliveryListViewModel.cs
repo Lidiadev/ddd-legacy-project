@@ -39,7 +39,6 @@ namespace PackageDelivery.Delivery
             Refresh();
         }
 
-
         private void EditPackageNew(Dlvr delivery)
         {
             var viewModel = new ChangePackageViewModel(delivery.NMB_CLM);

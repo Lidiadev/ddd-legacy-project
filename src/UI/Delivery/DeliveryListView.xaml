@@ -7,7 +7,7 @@
             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left" Orientation="Horizontal">
                 <Button Command="{Binding NewDeliveryCommand}" Content="New Delivery" Margin="10 0 10 15" Padding="5" FontSize="18" />
                 <Button Command="{Binding EditPackageCommand}" CommandParameter="{Binding ElementName=grdDeliveries, Path=SelectedValue}" Content="Edit Package" Margin="10 0 10 15" Padding="5" FontSize="18" />
-                <Button Command="{Binding EditPackageNewCommand}" CommandParameter="{Binding ElementName=grdDeliveries, Path=SelectedValue}" Content="Edit Package" Margin="10 0 10 15" Padding="5" FontSize="18" />
+                <Button Command="{Binding EditPackageNewCommand}" CommandParameter="{Binding ElementName=grdDeliveries, Path=SelectedValue}" Content="Edit Package (new)" Margin="10 0 10 15" Padding="5" FontSize="18" />
                 <Button Command="{Binding MarkAsInProgressCommand}" CommandParameter="{Binding ElementName=grdDeliveries, Path=SelectedValue}" Content="Mark as In-Progress" Margin="10 0 10 15" Padding="5" FontSize="18" />
                 <Button Command="{Binding RefreshCommand}" Content="Refresh" Margin="10 0 10 15" Padding="5" FontSize="18" />
             </StackPanel>
