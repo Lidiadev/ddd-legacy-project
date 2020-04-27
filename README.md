@@ -1,9 +1,4 @@
-Domain-Driven Design - working with legacy projects
-
-### Branches
-
-- [Initial](https://github.com/Lidiadev/ddd-legacy-project/tree/intial) - the `initial` branch contains the legacy project.
-- Master - the `master` branch will contain the code after refactoring. 
+Domain-Driven Design - sample to showcase how to work with legacy projects
 
 ### Project Details
 
@@ -19,3 +14,8 @@ The Package Delivery System is a desktop application written in WPF. It uses Dap
 - introduce a bubble context with the new domain model with proper encapsulation	
 - create the anticorruption layer to handle the conversation between the legacy code and the bubble context (through repositories in this case)	
 - promote the anticorruption layer to the synchronizing anticorruption layer which resides in its own bounded context
+
+### Branches
+
+- [Initial](https://github.com/Lidiadev/ddd-legacy-project/tree/intial) - the `initial` branch contains the legacy project.
+- Master - the `master` branch will contain the code after refactoring. 
