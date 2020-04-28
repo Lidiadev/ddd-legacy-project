@@ -14,10 +14,11 @@ The Package Delivery System is a desktop application written in WPF. It uses Dap
 - introduce a bubble context with the new domain model with proper encapsulation	
 - create the anticorruption layer to handle the conversation between the legacy code and the bubble context (through repositories in this case)	
 
-![anticorruption layer](https://github.com/Lidiadev/ddd-legacy-project/blob/master/images/anticorruption_layer.PNG)
+<img alt="anticorruption layer" src="https://github.com/Lidiadev/ddd-legacy-project/blob/master/images/anticorruption_layer.PNG" width="55%" height="55%">
+
 - promote the anticorruption layer to the synchronizing anticorruption layer which resides in its own bounded context
 
-![sync layer](https://github.com/Lidiadev/ddd-legacy-project/blob/master/images/sync_layer.PNG)
+<img alt="sync layer" src="https://github.com/Lidiadev/ddd-legacy-project/blob/master/images/sync_layer.PNG" width="70%" height="70%">
 
 ### Branches
 
