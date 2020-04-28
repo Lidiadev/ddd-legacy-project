@@ -12,6 +12,9 @@ The Package Delivery System is a desktop application written in WPF. It uses Dap
 ### The Anti-Corruption Layer 
 The anti-corruption layer is an adapter layer which handles the conversation between the legacy code and the bubble context.
 
+Benefits:
+- combines the benefits of a full rewrite with gradual refactoring: working on a greenfield domain model while still delivering business value.
+
 Considerations:
 - the anti-corruption layer is an additional service that must be managed, maintained and scaled
 - it may add latency.
